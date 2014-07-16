@@ -2,9 +2,10 @@ Install Thrift on Ubuntu 14.04
 
 sudo apt-get install libboost-dev libboost-test-dev libboost-program-options-dev libevent-dev automake libtool flex bison pkg-config g++ libssl-dev make git
 wget http://mirror.switch.ch/mirror/apache/dist/thrift/0.9.1/thrift-0.9.1.tar.gz
-cd thrift
+tar xvfz thrift-0.9.1.tar.gz
+cd thrift-0.9.1
 ./configure
 make
 make check
-make install install
+make install
 ldconfig
