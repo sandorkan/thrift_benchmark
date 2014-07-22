@@ -25,7 +25,7 @@ fi
 
 for((i = 0; i < 20; i++)) {
 #   KiaraTypedPublisher http://192.168.56.5:8080/service >> $TEST_RESULT
-    KiaraTypedPublisher $HOST:$PORT/service >> $TEST_RESULT
+    KiaraTypedPublisher http://$HOST:$PORT/service >> $TEST_RESULT
 }
 
 awk 'BEGIN { n=0; } { sum+=$0; val[n]=$0; n+=1; } END { avg = sum / n; sd = 0; for (i=0;i<n;i++) { sd += (val[i] - avg)^2; }; sd = sqrt(sd/(n-1)); print "Durchschnitt:\t\t" avg; print "Standard Deviation:\t" sd; }' "$TEST_RESULT"
