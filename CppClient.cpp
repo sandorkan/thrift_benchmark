@@ -89,11 +89,15 @@ int main(int argc, char** argv)
             transport->close();
 
             double latency = (double) elapsed / (num_messages * 2.0);
+            
+            printf("%.3f\n", latency);
+            /*
             printf("\n\nAverage latency in %s: %.3f\n\n\n",
                    MIDDLEWARENEWSBRIEF_PROFILER_TIME_UNITS,
                    latency);
             printf("Finished\n");
-
+	    */
+	    
         } catch (TException &tx) {
             printf("ERROR: %s\n", tx.what());
         }
