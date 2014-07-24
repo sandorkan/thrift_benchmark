@@ -14,3 +14,5 @@ env.Library('Gen', env.Split('''
 
 env.Program('ThriftClient', env.Split('CppClient.cpp'), LIBS=['thrift', 'Gen'])
 env.Program('ThriftServer', env.Split('CppServer.cpp'), LIBS=['thrift', 'Gen'])
+
+#env.Program('benchmark_data_size', env.Split('benchmark_data_size.cpp'), LIBS=['thrift', 'Gen'])
