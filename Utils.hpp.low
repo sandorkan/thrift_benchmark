@@ -1,0 +1,96 @@
+/*
+ * Utils.hpp
+ *
+ *  Created on: Mar 14, 2014
+ *      Author: Dmitri Rubinstein
+ */
+
+#ifndef UTILS_HPP_
+#define UTILS_HPP_
+
+#include "gen-cpp/Benchmark.h"
+
+inline benchmark::RelatedSym RelatedSym_createTestData()
+{
+    benchmark::RelatedSym sym;
+
+    sym.symbol = 321.0;
+    sym.orderQuantity = 25;
+    sym.side = 1;
+    sym.transactTime = 00162635;
+    sym.quoteType = 1;
+    sym.securityID = 99;
+
+    return sym;
+}
+
+inline benchmark::MarketDataEntry MarketDataEntry_createTestData()
+{
+    benchmark::MarketDataEntry entry;
+
+    entry.mdUpdateAction = 1;
+    entry.mdPriceLevel = 2;
+    entry.mdEntryType = 7;
+    entry.openCloseSettleFlag = 3;
+    entry.securityID = 99;
+    entry.securityIDSource = 9;
+    entry.rptSeq = 2;
+    entry.mdEntryPx = 100.0;
+    entry.mdEntryTime = 12345;
+    entry.mdEntrySize = 50;
+    entry.numberOfOrders = 10;
+    entry.tradingSessionID = 2;
+    entry.netChgPrevDay = 10.0;
+    entry.tradeVolume = 30;
+    entry.tradeCondition = double('W');
+    entry.tickDirection = 0;
+
+    return entry;
+}
+
+inline benchmark::MarketData MarketData_createTestData()
+{
+    benchmark::MarketData data;
+
+    data.isEcho = false;
+    data.counter = 0;
+
+    data.applVersionID = 1.0;
+    data.messageType = 100;
+    data.senderCompID = 121213.0;
+    data.msgSeqNum = 4;
+    data.sendingTime = 00162635;
+    data.tradeDate = 20100422;
+
+    data.mdEntries.push_back(MarketDataEntry_createTestData());
+    data.mdEntries.push_back(MarketDataEntry_createTestData());
+    data.mdEntries.push_back(MarketDataEntry_createTestData());
+
+    return data;
+}
+
+
+inline benchmark::QuoteRequest QuoteRequest_createTestData()
+{
+    benchmark::QuoteRequest req;
+
+    req.securityID = 2112;
+    req.applVersionID = 1.0;
+    req.messageType = 100;
+    req.senderCompID = 7881;
+    req.msgSeqNum = 4;
+    req.sendingTime = 00162635;
+    req.quoteReqID = double('R');
+
+    req.isEcho = false;
+    req.counter = 0;
+
+    req.related.reserve(3);
+    req.related.push_back(RelatedSym_createTestData());
+    req.related.push_back(RelatedSym_createTestData());
+    req.related.push_back(RelatedSym_createTestData());
+
+    return req;
+}
+
+#endif /* UTILS_HPP_ */
