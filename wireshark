@@ -1,0 +1,1 @@
+(ip.src == 160.85.231.148 or ip.dst == 160.85.231.148) and  (ip.src == 160.85.231.183 or ip.dst == 160.85.231.183) and not dns and tcp
